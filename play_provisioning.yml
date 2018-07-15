@@ -3,7 +3,7 @@
   hosts: all
   remote_user: root
   vars:
-    hostname: VTopLabs
+    hostname: TestHost
     ruby_version: 2.5.1
   tasks:
     - name: Pre Init System
