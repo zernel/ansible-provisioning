@@ -10,7 +10,7 @@ It will set up the following infrastructures by one command:
 1. Add your hosts to `hosts`
 2. Make sure you have SSH access of 'root' to the deploy servers
 3. Modify the vars inside the `play_deploy.yml`
-4. `ansible-playbook -i inventory/staging play_provisioning.yml`
+4. `ansible-playbook play_provisioning.yml`
 
 You can start a new terminal to tail the setup log over SSH while you running the `ansible-playbook`, then you can get the runtime log:
 `ssh root@remote_host "touch /tmp/setup.log && tail -f /tmp/setup.log"`
