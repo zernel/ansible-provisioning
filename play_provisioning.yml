@@ -1,0 +1,20 @@
+---
+- name: Provisioning Environments (Rails + MariaDB + Nginx + CertBot + Ruby with RVM)
+  hosts: all
+  remote_user: root
+  vars:
+    hostname: VTopLabs
+    ruby_version: 2.5.1
+  tasks:
+    - name: Pre Init System
+      script: scripts/root_pre_init_system.sh {{ hostname }}
+    - name: Install DB (MariaDB)
+      script: scripts/root_install_mariadb.sh
+    - name: Install Nginx and setup CertBot
+      script: scripts/root_install_nginx_and_certbot.sh
+    - name: Create user deploy
+      script: scripts/root_create_user_deploy.sh
+    - name: Install ruby with RVM
+      become: yes
+      become_user: deploy
+      script: scripts/deploy_install_ruby.sh {{ ruby_version }}
